@@ -1,0 +1,188 @@
+[
+    {
+        "id": "64109b64f5671317",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dcbb1ac4d06b170c",
+        "type": "mqtt in",
+        "z": "64109b64f5671317",
+        "name": "",
+        "topic": "",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c8ea2135f59ca64c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 50,
+        "y": 120,
+        "wires": [
+            [
+                "ba1b1ae85afac4b1"
+            ]
+        ]
+    },
+    {
+        "id": "ba1b1ae85afac4b1",
+        "type": "json",
+        "z": "64109b64f5671317",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "c38cd1cd1b8a0d53"
+            ]
+        ]
+    },
+    {
+        "id": "c38cd1cd1b8a0d53",
+        "type": "function",
+        "z": "64109b64f5671317",
+        "name": "function 1",
+        "func": "return [\n  { payload: msg.payload.temperatura },\n  { payload: msg.payload.umidade },\n  { payload: msg.payload.distancia }\n];\n",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "936703ce55a8d026"
+            ],
+            [
+                "5cac0780bdfdd7f2"
+            ],
+            [
+                "8e785ca019279f79"
+            ]
+        ]
+    },
+    {
+        "id": "936703ce55a8d026",
+        "type": "ui_gauge",
+        "z": "64109b64f5671317",
+        "name": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura (°C)",
+        "label": "Temperatura (°C)",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5cac0780bdfdd7f2",
+        "type": "ui_gauge",
+        "z": "64109b64f5671317",
+        "name": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade (%)",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8e785ca019279f79",
+        "type": "ui_gauge",
+        "z": "64109b64f5671317",
+        "name": "",
+        "group": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distância (cm)",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c8ea2135f59ca64c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "mottu/patio",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "mottu/patio",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "mottu/patio",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
